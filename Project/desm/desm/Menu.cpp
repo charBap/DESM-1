@@ -15,7 +15,7 @@ static TCHAR windowsTitle[] = _T("Window1");
 //Window Instance
 HINSTANCE hInst;
 //Creation of a handle for the window
-HWND createAccountButton;
+HWND createAccountButton, resetPasswordButton, signInButton;
 
 // Forward declarations of functions included in this code module:
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
@@ -119,7 +119,7 @@ int CALLBACK WinMain(
 	return (int)msg.wParam;
 }
 //Button Proc test
-WNDPROC createButtonProc;
+WNDPROC createButtonProc, resetPasswordButtonProc, signInButtonProc;
 
 //Callback for buttonproc
 LRESULT CALLBACK ButtonProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
@@ -154,11 +154,29 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	{
 		//Create Button instance in the window
 		//http://www.cplusplus.com/forum/windows/11305/
-		HWND createAccountButton = CreateWindow(TEXT("button"), TEXT("Button"),
+		//Create Account Button
+		HWND createAccountButton = CreateWindow(TEXT("button"), TEXT("Create Account"),
 			WS_VISIBLE | WS_CHILD | BS_PUSHBUTTON,
-			80, 10, 100, 50,
+			90, 240, 120, 20,
 			hWnd, NULL, NULL, NULL);
+		//Button Proc (what it will do)
 		createButtonProc = (WNDPROC)SetWindowLong(createAccountButton, GWL_EXSTYLE, (LONG)ButtonProc);
+
+		//Reset Password Button
+		HWND resetPasswordButton = CreateWindow(TEXT("button"), TEXT("Reset Password"),
+			WS_VISIBLE | WS_CHILD | BS_PUSHBUTTON,
+			90, 400, 120, 20,
+			hWnd, NULL, NULL, NULL);
+		//Button Proc (what it will do) 
+		resetPasswordButtonProc = (WNDPROC)SetWindowLong(resetPasswordButton, GWL_EXSTYLE, (LONG)ButtonProc);
+
+		//Sign-in Button
+		HWND signInButtonButton = CreateWindow(TEXT("button"), TEXT("Sign In"),
+			WS_VISIBLE | WS_CHILD | BS_PUSHBUTTON,
+			250, 400, 120, 20,
+			hWnd, NULL, NULL, NULL);
+		//Button Proc (what it will do)
+		signInButtonProc = (WNDPROC)SetWindowLong(signInButton, GWL_EXSTYLE, (LONG)ButtonProc);
 
 		break;
 	}
@@ -173,6 +191,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		// End application-specific layout section.
 
 		//Handles Text only
+		//https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-textouta
 		TextOut(hdc, 
 			10, 200,
 			username, _tcsclen(username));
