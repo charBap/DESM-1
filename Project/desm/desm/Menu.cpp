@@ -12,7 +12,9 @@ static TCHAR DESM[] = _T("Desktop Environment Setup Manager");
 // The string that appears in the application's title bar.
 static TCHAR windowsTitle[] = _T("Window1");
 
+//Window Instance
 HINSTANCE hInst;
+//Creation of a handle for the window
 HWND createAccountButton;
 
 // Forward declarations of functions included in this code module:
@@ -35,6 +37,8 @@ int CALLBACK WinMain(
 	_In_ int       nCmdShow
 
 ) {
+	//Extra Window Properties
+	//Ex exclusive icon cursor or color
 	WNDCLASSEX wcex;
 
 	wcex.cbSize = sizeof(WNDCLASSEX);
@@ -86,7 +90,7 @@ int CALLBACK WinMain(
 		NULL
 	);
 
-
+	//Faliure state
 	if (!hWnd)
 	{
 		MessageBox(NULL,
@@ -114,10 +118,10 @@ int CALLBACK WinMain(
 
 	return (int)msg.wParam;
 }
-//testing createing a button proc
+//Button Proc test
 WNDPROC createButtonProc;
 
-//callback for buttonproc
+//Callback for buttonproc
 LRESULT CALLBACK ButtonProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
 {
 	switch (msg) {
@@ -148,17 +152,18 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	{
 	case WM_CREATE:
 	{
+		//Create Button instance in the window
+		//http://www.cplusplus.com/forum/windows/11305/
 		HWND createAccountButton = CreateWindow(TEXT("button"), TEXT("Button"),
 			WS_VISIBLE | WS_CHILD | BS_PUSHBUTTON,
 			80, 10, 100, 50,
 			hWnd, NULL, NULL, NULL);
-		createButtonProc = (WNDPROC)SetWindowLong(createAccountButton, GWL_WNDPROC, (LONG)ButtonProc);
+		createButtonProc = (WNDPROC)SetWindowLong(createAccountButton, GWL_EXSTYLE, (LONG)ButtonProc);
 
 		break;
 	}
 	case WM_PAINT:
 		hdc = BeginPaint(hWnd, &ps);
-
 		// Here your application is laid out.
 		// For this introduction, we just print out "Hello, Windows desktop!"
 		// in the top left corner.
@@ -166,6 +171,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			//5, 5,
 			//greeting, _tcslen(greeting));
 		// End application-specific layout section.
+
+		//Handles Text only
 		TextOut(hdc, 
 			10, 200,
 			username, _tcsclen(username));
@@ -176,6 +183,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		EndPaint(hWnd, &ps);
 		break;
 	case WM_DESTROY:
+
+		//Destructor
 		PostQuitMessage(0);
 		break;
 	default:
