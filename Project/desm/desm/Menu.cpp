@@ -15,7 +15,7 @@ static TCHAR windowsTitle[] = _T("Window1");
 //Window Instance
 HINSTANCE hInst;
 //Creation of a handle for the window
-HWND createAccountButton, resetPasswordButton, signInButton;
+HWND createAccountButton, resetPasswordButton, signInButton, checkbox;
 
 // Forward declarations of functions included in this code module:
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
@@ -119,7 +119,7 @@ int CALLBACK WinMain(
 	return (int)msg.wParam;
 }
 //Button Proc test
-WNDPROC createButtonProc, resetPasswordButtonProc, signInButtonProc;
+WNDPROC createButtonProc, resetPasswordButtonProc, signInButtonProc, checkboxProc;
 
 //Callback for buttonproc
 LRESULT CALLBACK ButtonProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
@@ -178,6 +178,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		//Button Proc (what it will do)
 		signInButtonProc = (WNDPROC)SetWindowLong(signInButton, GWL_EXSTYLE, (LONG)ButtonProc);
 
+		//Checkbox for default user
+		//https://stackoverflow.com/questions/24065214/how-to-make-checkbox-in-win32
+		HWND checkbox = CreateWindow(TEXT("button"), TEXT("Default User"),
+			WS_VISIBLE | WS_CHILD | BS_CHECKBOX,
+			250, 240, 120, 20, 
+			hWnd, NULL, NULL, NULL);
+		//Button Proc (what it will do)
+		checkboxProc = (WNDPROC)SetWindowLong(checkbox, GWL_EXSTYLE, (LONG)ButtonProc);
 		break;
 	}
 	case WM_PAINT:
