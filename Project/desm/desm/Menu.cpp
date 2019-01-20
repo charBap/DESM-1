@@ -15,7 +15,7 @@ static TCHAR windowsTitle[] = _T("Window1");
 //Window Instance
 HINSTANCE hInst;
 //Creation of a handle for the window
-HWND createAccountButton, resetPasswordButton, signInButton, checkbox;
+HWND createAccountButton, resetPasswordButton, signInButton, checkbox, usernameTextbox, passwordTextbox;
 
 // Forward declarations of functions included in this code module:
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
@@ -119,7 +119,7 @@ int CALLBACK WinMain(
 	return (int)msg.wParam;
 }
 //Button Proc test
-WNDPROC createButtonProc, resetPasswordButtonProc, signInButtonProc, checkboxProc;
+WNDPROC createButtonProc, resetPasswordButtonProc, signInButtonProc, checkboxProc, usernameTextboxProc, passwordTextboxProc;
 
 //Callback for buttonproc
 LRESULT CALLBACK ButtonProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
@@ -186,6 +186,20 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			hWnd, NULL, NULL, NULL);
 		//Button Proc (what it will do)
 		checkboxProc = (WNDPROC)SetWindowLong(checkbox, GWL_EXSTYLE, (LONG)ButtonProc);
+
+		//Textbox input
+		HWND usernameTextbox = CreateWindow(TEXT("EDIT"), TEXT(""),
+			WS_BORDER | WS_CHILD | WS_VISIBLE,
+			100, 200, 250, 20,
+			hWnd, NULL, NULL, NULL);
+		//GetDlgItemText(hwnd, 123, line, 100); handles getting the input
+
+		HWND passwordTextbox = CreateWindow(TEXT("EDIT"), TEXT(""),
+			WS_BORDER | WS_CHILD | WS_VISIBLE,
+			100, 220, 250, 20,
+			hWnd, NULL, NULL, NULL);
+		//GetDlgItemText(hwnd, 123, line, 100); handles getting the input
+
 		break;
 	}
 	case WM_PAINT:
@@ -209,6 +223,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 		EndPaint(hWnd, &ps);
 		break;
+	case WM_COMMAND:
+	{
+	}
+	break;
 	case WM_DESTROY:
 
 		//Destructor
