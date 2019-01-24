@@ -1,0 +1,17 @@
+﻿  Window1.cpp
+f:\documents\dropbox\school work\prj666\prj666\desm-personal\project\desm\desm\window1.cpp(92): error C2374: 'hWnd': redefinition; multiple initialization
+  f:\documents\dropbox\school work\prj666\prj666\desm-personal\project\desm\desm\window1.cpp(81): note: see declaration of 'hWnd'
+f:\documents\dropbox\school work\prj666\prj666\desm-personal\project\desm\desm\window1.cpp(174): warning C4311: 'type cast': pointer truncation from 'LRESULT (__cdecl *)(HWND,UINT,WPARAM,LPARAM)' to 'LONG'
+f:\documents\dropbox\school work\prj666\prj666\desm-personal\project\desm\desm\window1.cpp(174): warning C4302: 'type cast': truncation from 'LRESULT (__cdecl *)(HWND,UINT,WPARAM,LPARAM)' to 'LONG'
+f:\documents\dropbox\school work\prj666\prj666\desm-personal\project\desm\desm\window1.cpp(174): warning C4312: 'type cast': conversion from 'LONG' to 'WNDPROC' of greater size
+f:\documents\dropbox\school work\prj666\prj666\desm-personal\project\desm\desm\window1.cpp(182): warning C4311: 'type cast': pointer truncation from 'LRESULT (__cdecl *)(HWND,UINT,WPARAM,LPARAM)' to 'LONG'
+f:\documents\dropbox\school work\prj666\prj666\desm-personal\project\desm\desm\window1.cpp(182): warning C4302: 'type cast': truncation from 'LRESULT (__cdecl *)(HWND,UINT,WPARAM,LPARAM)' to 'LONG'
+f:\documents\dropbox\school work\prj666\prj666\desm-personal\project\desm\desm\window1.cpp(182): warning C4312: 'type cast': conversion from 'LONG' to 'WNDPROC' of greater size
+f:\documents\dropbox\school work\prj666\prj666\desm-personal\project\desm\desm\window1.cpp(190): warning C4311: 'type cast': pointer truncation from 'LRESULT (__cdecl *)(HWND,UINT,WPARAM,LPARAM)' to 'LONG'
+f:\documents\dropbox\school work\prj666\prj666\desm-personal\project\desm\desm\window1.cpp(190): warning C4302: 'type cast': truncation from 'LRESULT (__cdecl *)(HWND,UINT,WPARAM,LPARAM)' to 'LONG'
+f:\documents\dropbox\school work\prj666\prj666\desm-personal\project\desm\desm\window1.cpp(190): warning C4312: 'type cast': conversion from 'LONG' to 'WNDPROC' of greater size
+f:\documents\dropbox\school work\prj666\prj666\desm-personal\project\desm\desm\window1.cpp(199): warning C4311: 'type cast': pointer truncation from 'LRESULT (__cdecl *)(HWND,UINT,WPARAM,LPARAM)' to 'LONG'
+f:\documents\dropbox\school work\prj666\prj666\desm-personal\project\desm\desm\window1.cpp(199): warning C4302: 'type cast': truncation from 'LRESULT (__cdecl *)(HWND,UINT,WPARAM,LPARAM)' to 'LONG'
+f:\documents\dropbox\school work\prj666\prj666\desm-personal\project\desm\desm\window1.cpp(199): warning C4312: 'type cast': conversion from 'LONG' to 'WNDPROC' of greater size
+f:\documents\dropbox\school work\prj666\prj666\desm-personal\project\desm\desm\window1.cpp(230): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+f:\documents\dropbox\school work\prj666\prj666\desm-personal\project\desm\desm\window1.cpp(233): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
